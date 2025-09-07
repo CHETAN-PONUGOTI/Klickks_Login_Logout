@@ -125,3 +125,16 @@ input {
 .logout-button-dashboard:hover {
   background-color: #05487aff; /* Darker red on hover */
 }
+
+.password-wrapper {
+  position: relative;
+}
+
+.password-icon {
+  position: absolute;
+  top: 70%; /* Adjust this to vertically center the icon alongside the label */
+  right: 15px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #888;
+}

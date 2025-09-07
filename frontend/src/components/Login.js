@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 import '../index.css'
 
@@ -10,6 +11,7 @@ function Login({ setLoggedIn }) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
@@ -40,15 +42,18 @@ function Login({ setLoggedIn }) {
                         required
                     />
                 </div>
-                <div className="form-group">
+                <div className="form-group password-wrapper">
                     <label htmlFor="password">Password</label>
                     <input
-                        type="password"
+                        type={showPassword ? 'text' : 'password'}
                         id="password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         required
                     />
+                    <span onClick={() => setShowPassword(!showPassword)} className="password-icon">
+                        {showPassword ? <FaEyeSlash /> : <FaEye />}
+                    </span>
                 </div>
                 <button type="submit" className="auth-button">Login</button>
             </form>
