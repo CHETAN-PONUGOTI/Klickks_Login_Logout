@@ -20,7 +20,7 @@ app.use(cookieParser()); // To parse cookies
 
 // Session Configuration
 app.use(session({
-    secret: process.env.SESSION_SECRET, // Replace with a real secret key
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false, // Don't create session until something stored
     cookie: {
